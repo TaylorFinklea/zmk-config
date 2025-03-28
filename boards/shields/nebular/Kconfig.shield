@@ -1,0 +1,5 @@
+config SHIELD_NEBULAR_LEFT
+    def_bool $(shields_list_contains,nebular_left)
+
+config SHIELD_NEBULAR_RIGHT
+    def_bool $(shields_list_contains,nebular_right)

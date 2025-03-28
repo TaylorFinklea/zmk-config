@@ -1,0 +1,16 @@
+if SHIELD_NEBULAR_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "nebular"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif # SHIELD_NEBULAR_LEFT
+
+if SHIELD_NEBULAR_LEFT || SHIELD_NEBULAR_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif # SHIELD_NEBULAR_LEFT || SHIELD_NEBULAR_RIGHT
