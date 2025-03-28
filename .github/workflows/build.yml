@@ -4,3 +4,10 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      # Define the specific board/shield combinations to build using 'include'
+      include: |
+        - board: nice_nano_v2
+          shield: nebular_left
+        - board: nice_nano_v2
+          shield: nebular_right
