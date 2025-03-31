@@ -4,6 +4,8 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/reset.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
     behaviors {
@@ -42,10 +44,10 @@
 
         bootloader_layer {
             bindings = <
-                &trans   &trans   &trans   &trans   &trans       &trans   &trans   &trans   &trans   &trans
-                &trans   &trans   &trans   &trans   &trans       &trans   &trans   &trans   &trans   &trans
-                &trans   &trans   &trans   &trans   &trans       &trans   &trans   &trans   &trans   &trans
-                                  &trans   &bootloader   &bootloader &trans
+                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &reset   &none    &none    &none    &none
+                &bt BT_CLR   &out OUT_TOG &none        &none        &none           &none    &none    &none    &none    &none
+                &reset       &none        &none        &none        &none           &none    &none    &none    &none    &none
+                                          &trans       &bootloader       &bootloader &trans
             >;
         };
     };
