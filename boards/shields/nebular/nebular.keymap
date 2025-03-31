@@ -36,7 +36,7 @@
             //                            └────┴────┘   └────┴─────┘
             bindings = <
                 &kp Q    &kp W    &kp F    &kp P    &kp B        &kp J    &kp L    &kp U    &kp Y    &kp SEMI
-                &kp A    &kp R    &kp S    &kp T    &kp G        &kp M    &kp N    &kp E    &kp I    &kp O
+                &kp A    &kp R    &kp S    &lt 2 T    &kp G        &kp M    &kp N    &kp E    &kp I    &kp O
                 &kp Z    &kp X    &kp C    &kp D    &kp V        &kp K    &kp H    &kp COMMA &kp DOT  &kp FSLH
                                   &lt 1 ESC &kp SPACE    &kp BSPC &lt 1 RET
             >;
@@ -48,6 +48,15 @@
                 &bt BT_CLR   &out OUT_TOG &none        &none        &none           &none    &none    &none    &none     &none
                 &sys_reset   &soft_off    &none        &none        &none           &none    &none    &none    &soft_off &sys_reset
                                           &trans       &bootloader       &bootloader &trans
+            >;
+        };
+
+        nav_layer {
+            bindings = <
+                &none       &none      &none       &none      &none        &none       &kp PG_UP  &kp UP     &kp HOME   &none
+                &none       &none      &none       &trans     &none        &caps_word  &kp LEFT   &kp DOWN   &kp RIGHT  &none
+                &none       &none      &none       &none      &none        &none       &kp PG_DN  &kp LG(LS(X)) &kp END &none
+                                       &none       &kp ESC        &kp DEL   &trans
             >;
         };
     };
