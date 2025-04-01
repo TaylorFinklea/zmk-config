@@ -4,19 +4,6 @@
 
 #include "nebular.dtsi"
 
-&sensors { // Reference the standard Zephyr sensor node
-    sensors = <&encoder_1>; // Add our encoder sensor to the list of sensors
-};
-
-encoder_1: encoder_1 { // Define the encoder node
-    compatible = "alps,ec11"; // Use the EC11 driver
-    a-gpios = <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // Phase A connected to D3
-    b-gpios = <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // Phase B connected to D2
-
-    steps = <EC11_STEPS_DEFAULT>; // Steps per detent (usually 4 for EC11, can be 2)
-    status = "okay";         // Enable the sensor
-};
-// <<< END: Encoder Definition >>>
 
 &kscan {
     // Define the GPIO pins used for columns on the left side.
