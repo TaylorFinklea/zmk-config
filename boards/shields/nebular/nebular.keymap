@@ -37,7 +37,7 @@
             //                            └────┴────┘   └────┴─────┘
             bindings = <
                 &lt 1 Q                &mt LCTRL W &mt LALT F   &kp P        &kp B        &kp J    &kp L        &mt RALT U &mt RCTRL Y &lt 1 SQT
-                &mt LSHFT A            &lt 4 R     &lt 3 S      &lt 2 T      &kp G        &kp M    &kp N        &kp E      &kp I       &mt RSHFT O
+                &mt LSHFT A            &lt 4 R     &lt 3 S      &lt 2 T      &kp G        &kp M    &lt 5 N      &kp E      &kp I       &mt RSHFT O
                 &mt LC(LA(LS(LGUI))) Z &kp X       &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA  &kp DOT     &kp SEMI
                                                    &mt LGUI TAB &kp SPACE    &kp BSPC     &mt RGUI RET
             >;
@@ -73,9 +73,18 @@
         layer_4_media {
             bindings = <
                 &trans      &none      &kp LG(F)  &kp LG(A)  &trans       &trans     &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
-                &kp LG(K)   &none      &kp LG(V)  &kp LG(C)  &kp LG(X)    &kp C_MCTL &kp C_PREV   &kp C_PP   &kp C_NEXT   &kp LG(L)
+                &kp LG(K)   &none      &kp LG(V)  &kp LG(C)  &kp LG(X)    &trans     &kp C_PREV   &kp C_PP   &kp C_NEXT   &kp LG(L)
                 &trans      &none      &kp LG(U)  &trans     &trans       &trans     &kp C_BRI_UP &kp C_BRI_DN &trans     &trans
                                                   &trans     &trans       &trans     &trans
+            >;
+        };
+
+        layer_5_symbols {
+            bindings = <
+                &kp GRAVE   &kp PIPE   &kp LBKT   &kp RBKT   &kp DLLR      &none     &none      &kp ASTRK  &kp UNDER  &kp PLUS
+                &kp HASH    &kp FSLH   &kp LPAR   &kp RPAR   &kp PRCNT     &none     &none      &kp AT     &kp MINUS  &kp COLON
+                &kp CARET   &kp BSLH   &kp LBRC   &kp RBRC   &kp AMPS      &none     &none      &kp EXCL   &kp QMARK  &kp SEMI
+                                                  &trans     &kp TILDE     &kp EQUAL &trans
             >;
         };
     };
