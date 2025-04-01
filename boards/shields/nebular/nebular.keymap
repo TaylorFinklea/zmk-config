@@ -26,24 +26,24 @@
 
         default_layer {
             // ┌────┬────┬────┬────┬─────┐   ┌────┬────┬────┬────┬─────┐
-            // │   Q   │   W   │   F   │   P   │   B   │   │   J   │   L   │   U   │   Y   │   ;   │
+            // │   Q   │   W   │   F   │   P   │   B   │   │   J   │   L   │   U   │   Y   │   '   │
             // ├────┼────┼────┼────┼─────┤   ├────┼────┼────┼────┼─────┤
             // │   A   │   R   │   S   │   T   │   G   │   │   M   │   N   │   E   │   I   │   O   │
             // ├────┼────┼────┼────┼─────┤   ├────┼────┼────┼────┼─────┤
-            // │   Z   │   X   │   C   │   D   │   V   │   │   K   │   H   │   ,   │   .   │   /   │
+            // │   Z   │   X   │   C   │   D   │   V   │   │   K   │   H   │   ,   │   .   │   ;   │
             // └────┴────┴────┴────┴─────┘   └────┴────┴────┴────┴─────┘
             //                            ┌────┬────┐   ┌────┬─────┐
             //                            │ ESC  │  SPC  │   │  BSPC │  ENT   │
             //                            └────┴────┘   └────┴─────┘
             bindings = <
-                &kp Q    &mt LCTRL W       &mt LALT F    &kp P    &kp B        &kp J    &kp L    &kp U    &kp Y    &kp SEMI
-                &mt LSHIFT A    &kp R    &kp S    &lt 2 T    &kp G        &kp M    &kp N    &kp E    &kp I    &mt RSHIFT O
-                &kp Z    &kp X    &kp C    &kp D    &kp V        &kp K    &kp H    &kp COMMA &kp DOT  &kp FSLH
-                                  &lt 1 ESC &kp SPACE    &kp BSPC &lt 1 RET
+                &lt 1 Q        &mt LCTRL W       &mt LALT F    &kp P    &kp B        &kp J    &kp L    &mt RALT U    &mt RCTRL Y    &kp SQT
+                &mt LSHFT A  &kp R    &kp S    &lt 2 T    &kp G        &kp M    &kp N    &kp E    &kp I    &mt RSHFT O
+                &kp Z        &kp X    &kp C    &kp D    &kp V        &kp K    &kp H    &kp COMMA &kp DOT  &kp SEMI
+                                  &mt LGUI TAB &kp SPACE    &kp BSPC &mt RGUI RET
             >;
         };
 
-        bootloader_layer {
+        layer_1_system {
             bindings = <
                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none    &none    &none    &none     &none
                 &bt BT_CLR   &out OUT_TOG &none        &none        &none           &none    &none    &none    &none     &none
@@ -52,7 +52,7 @@
             >;
         };
 
-        nav_layer {
+        layer_2_navigation {
             bindings = <
                 &none       &none      &none       &none      &none        &none       &kp PG_UP  &kp UP     &kp HOME   &none
                 &none       &none      &none       &trans     &none        &caps_word  &kp LEFT   &kp DOWN   &kp RIGHT  &none
