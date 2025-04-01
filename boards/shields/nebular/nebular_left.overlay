@@ -4,6 +4,9 @@
 
 #include "nebular.dtsi"
 
+&encoder_1 {
+    status = "okay"; // Enable the encoder defined in nebular.dtsi
+};
 
 &kscan {
     // Define the GPIO pins used for columns on the left side.
