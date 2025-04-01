@@ -4,9 +4,6 @@
 
 #include "nebular.dtsi"
 
-// <<< START: Encoder Definition >>>
-#include <zephyr/dt-bindings/sensor/qdec_alps_ec11.h> // Include EC11 specific definitions
-
 &sensors { // Reference the standard Zephyr sensor node
     sensors = <&encoder_1>; // Add our encoder sensor to the list of sensors
 };
