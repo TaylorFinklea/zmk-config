@@ -36,9 +36,9 @@
             //                            │ ESC  │  SPC  │   │  BSPC │  ENT   │
             //                            └────┴────┘   └────┴─────┘
             bindings = <
-                &lt 1 Q     &mt LCTRL W &mt LALT F &kp P        &kp B        &kp J    &kp L    &mt RALT U    &mt RCTRL Y    &lt 1 SQT
-                &mt LSHFT A &kp R       &kp S      &lt 2 T      &kp G        &kp M    &kp N    &kp E    &kp I    &mt RSHFT O
-                &kp Z       &kp X       &kp C      &kp D        &kp V        &kp K    &kp H    &kp COMMA &kp DOT  &kp SEMI
+                &lt 1 Q     &mt LCTRL W &mt LALT F &kp P        &kp B        &kp J    &kp L        &mt RALT U &mt RCTRL Y &lt 1 SQT
+                &mt LSHFT A &kp R       &kp S      &lt 2 T      &kp G        &kp M    &kp N        &kp E      &kp I       &mt RSHFT O
+                &kp Z       &kp X       &kp C      &kp D        &kp V        &kp K    &kp H        &kp COMMA  &kp DOT     &kp SEMI
                                                    &mt LGUI TAB &kp SPACE    &kp BSPC &mt RGUI RET
             >;
         };
