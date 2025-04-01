@@ -173,5 +173,29 @@
                                       &kp NUMLOCK &CAPS                   &trans &trans
              >;
          };
+
+        /* ----- layer_7_base_switch (Layer 7) -----
+         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
+         * |  TRNS   |  TRNS   |  TRNS   |  TRNS   |  TRNS   |   |  TRNS   |  TO_3   |  TRNS   | _______ | _______ |
+         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
+         * |  TRNS   |  TRNS   |  TRNS   |  TRNS   |  TRNS   |   |  TO_2   |  TO_0   |  LGUI   | _______ |  TRNS   |
+         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
+         * |  TRNS   |  TRNS   |  TRNS   |  TRNS   |  TRNS   |   |  TO_9?  |  TO_8?  |  TRNS   | _______ | _______ |
+         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
+         *                               +---------+---------+   +---------+---------+
+         *                               |  TRNS   |  TRNS   |   |  TRNS   |  TRNS   |
+         *                               +---------+---------+   +---------+---------+
+         */
+        layer_7_base_switch {
+            // Note: TO_x switches the base layer permanently. TO_8/TO_9 mapped to none as layers don't exist.
+            bindings = <
+                &trans      &trans    &trans    &trans    &trans       &trans    &to 3     &trans    &none     &none
+                &trans      &trans    &trans    &trans    &trans       &to 2     &to 0     &kp LGUI  &none     &trans
+                &trans      &trans    &trans    &trans    &trans       &none     &none     &trans    &none     &none  // Map TO_9 and TO_8 to none
+                                      &trans    &trans                 &trans    &trans
+            >;
+        };
+
+
     };
 };
