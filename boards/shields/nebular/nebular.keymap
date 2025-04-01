@@ -251,4 +251,22 @@
              >;
          };
     };
+
+
+    sensors {
+        compatible = "zmk,keymap-sensors"; // Standard compatible string
+        sensors = <&encoder_1>; // Reference the 'label' of the encoder defined in the overlay
+    };
+
+    sensor-bindings = <
+        // Define bindings for the sensors listed above.
+        // Use &inc_dec_kp for regular keycodes, &inc_dec_cp for consumer page codes.
+        // Format: &binding CLOCKWISE_ACTION COUNTER_CLOCKWISE_ACTION
+        // Example 1: Volume Up/Down
+        &inc_dec_kp C_VOL_UP C_VOL_DN
+        // Example 2: Page Up/Down (Uncomment below and comment above to use this instead)
+        // &inc_dec_kp PG_UP PG_DN
+        // Example 3: Horizontal Scroll (Uncomment below and comment others to use this instead)
+        // &inc_dec_kp LALT(RIGHT) LALT(LEFT) // Assuming Alt+Right/Left scrolls horizontally in your OS/app
+    >;
 };
