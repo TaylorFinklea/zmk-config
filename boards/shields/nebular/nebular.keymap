@@ -48,10 +48,10 @@
          */
         default_layer {
             bindings = <
-                &lt 1 Q                &mtc LCTRL W &mt LALT F   &kp P        &kp B        &kp J    &lt 5 L      &mt RALT U &mt RCTRL Y &lt 1 SQT
-                &mtc LSHFT A            &lt 4 R     &lt 3 S      &lt 2 T      &kp G        &kp M    &lt 5 N      &lt 6 E      &lt 7 I      &mtc RSHFT O
-                &mtc LC(LA(LS(LGUI))) Z &kp X       &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA  &kp DOT     &kp SEMI
-                                                   &mtc LGUI TAB &kp SPACE    &kp BSPC     &mtc RGUI RET
+                &lt 1 Q                &mtc LCTRL W &mt LALT F    &kp P          &kp B        &kp J    &lt 5 L      &mt RALT U &mt RCTRL Y &lt 1 SQT
+                &mtc LSHFT A            &lt 4 R     &lt 3 S       &lt 2 T        &kp G        &kp M    &lt 5 N      &lt 6 E      &lt 7 I      &mtc RSHFT O
+                &mtc LC(LA(LS(LGUI))) Z &kp X       &kp C         &kp D          &kp V        &kp K    &kp H        &kp COMMA  &kp DOT     &kp SEMI
+                                                    &mtc LGUI TAB &lt 9 SPACE    &kp BSPC     &mtc RGUI RET
             >;
         };
 
@@ -172,7 +172,7 @@
          * |   F11   |   F12   | _______ | _______ | _______ |   |  TRNS   |  TRNS   |  TRNS   |  TRNS   |  TRNS   |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
          *                               +---------+---------+   +---------+---------+
-         *                               |  NUM L  |  CAPS   |   |  TRNS   |  TRNS   |
+         *                               |   NUM   |  CAPS   |   |  TRNS   |  TRNS   |
          *                               +---------+---------+   +---------+---------+
          */
         layer_6_function {
@@ -201,7 +201,7 @@
             bindings = <
                 &trans      &trans    &trans    &trans    &trans       &trans    &to 3     &trans    &none     &none
                 &trans      &trans    &trans    &trans    &trans       &to 2     &to 0     &trans    &none     &trans
-                &trans      &trans    &trans    &trans    &trans       &none     &none     &trans    &none     &none  // Map TO_9 and TO_8 to none
+                &trans      &trans    &trans    &trans    &trans       &to 9     &to 8     &trans    &none     &none  // Map TO_9 and TO_8 to none
                                       &trans    &trans                 &trans    &trans
             >;
         };
