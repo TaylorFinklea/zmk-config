@@ -208,9 +208,9 @@
 
         /* ----- layer_8_mouse (Layer 8) -----
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * | _______ |  WH_L   |  WH_U   |  WH_R   | _______ |   | _______ | _______ |  MS_U   | _______ | _______ |
+         * | _______ |  SCR_L  |  SCR_U  |  SCR_R  | _______ |   | _______ | _______ |  MOV_U  | _______ | _______ |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  BTN4   |  BTN2   |  WH_D   |  BTN1   |  BTN5   |   | _______ |  MS_L   |  MS_D   |  MS_R   | _______ |
+         * |  BTN4   |  BTN2   |  SCR_D  |  BTN1   |  BTN5   |   | _______ |  MOV_L  |  MOV_D  |  MOV_R  | _______ |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
          * | _______ | _______ |  BTN3   | _______ | _______ |   | _______ |  TRNS   | _______ | _______ |  TO_0   |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
@@ -219,19 +219,20 @@
          *                               +---------+---------+   +---------+---------+
          */
          layer_8_mouse {
+             // Note: SCR = Mouse Scroll, MOV = Mouse Move, BTN = Mouse Button
              bindings = <
-                &none       &kp WH_LEFT  &kp WH_UP    &kp WH_RIGHT &none        &none  &none        &kp MS_UP &none  &none
-                &mkp MB4    &mkp MB2     &kp WH_DOWN  &mkp MB1     &mkp MB5     &none  &kp MS_LEFT  &kp MS_DOWN &kp MS_RIGHT &none
-                &none       &none        &mkp MB3     &none        &none        &none  &trans       &none  &none  &to 0
-                                         &none        &none                     &none  &trans
+                &none       &msc SCRL_LEFT  &msc SCRL_UP    &msc SCRL_RIGHT &none        &none  &none           &mmv MOVE_UP    &none      &none
+                &mkp MB4    &mkp MB2        &msc SCRL_DOWN  &mkp MB1        &mkp MB5     &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT &none
+                &none       &none           &mkp MB3        &none           &none        &none  &trans          &none           &none      &to 0
+                                            &none           &none                        &none           &trans
              >;
          };
 
         /* ----- layer_9_mouse_alt (Layer 9) -----
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  TRNS   |  WH_L   |  WH_U   |  WH_R   |  TRNS   |   | _______ |  WH_L   |  WH_U   |  WH_R   | _______ |
+         * |  TRNS   |  SCR_L  |  SCR_U  |  SCR_R  |  TRNS   |   | _______ |  SCR_L  |  SCR_U  |  SCR_R  | _______ |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  BTN4   |  BTN2   |  WH_D   |  BTN1   |  BTN5   |   |  BTN4   |  BTN1   |  WH_D   |  BTN2   |  BTN5   |
+         * |  BTN4   |  BTN2   |  SCR_D  |  BTN1   |  BTN5   |   |  BTN4   |  BTN1   |  SCR_D  |  BTN2   |  BTN5   |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
          * |  TRNS   |  TRNS   |  BTN3   |  TRNS   |  TRNS   |   | _______ | _______ |  BTN3   | _______ |  TO_0   |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
@@ -240,11 +241,12 @@
          *                               +---------+---------+   +---------+---------+
          */
          layer_9_mouse_alt {
+             // Note: SCR = Mouse Scroll, BTN = Mouse Button
              bindings = <
-                &trans      &kp WH_LEFT  &kp WH_UP    &kp WH_RIGHT &trans       &none  &kp WH_LEFT  &kp WH_UP &kp WH_RIGHT &none
-                &mkp MB4    &mkp MB2     &kp WH_DOWN  &mkp MB1     &mkp MB5     &mkp MB4  &mkp MB1  &kp WH_DOWN &mkp MB2 &mkp MB5
-                &trans      &trans       &mkp MB3     &trans       &trans       &none  &none        &mkp MB3  &none  &to 0
-                                         &none        &none                     &trans  &trans
+                &trans      &msc SCRL_LEFT  &msc SCRL_UP    &msc SCRL_RIGHT &trans       &none  &msc SCRL_LEFT  &msc SCRL_UP    &msc SCRL_RIGHT &none
+                &mkp MB4    &mkp MB2        &msc SCRL_DOWN  &mkp MB1        &mkp MB5     &mkp MB4  &mkp MB1        &msc SCRL_DOWN  &mkp MB2        &mkp MB5
+                &trans      &trans          &mkp MB3        &trans          &trans       &none  &none           &mkp MB3        &none           &to 0
+                                            &none           &none                        &trans          &trans
              >;
          };
 
