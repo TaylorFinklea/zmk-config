@@ -11,12 +11,21 @@
     behaviors {
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <170>; // tuned value
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
+        };
+
+        // --- Renamed Mod-Tap behavior ---
+        mtc: mod_tap_custom { // Renamed to mtc
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <170>; // tuned value
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>; // Placeholders
         };
 
     };
@@ -38,10 +47,10 @@
          */
         default_layer {
             bindings = <
-                &lt 1 Q                &mt LCTRL W &mt LALT F   &kp P        &kp B        &kp J    &lt 5 L      &mt RALT U &mt RCTRL Y &lt 1 SQT
-                &mt LSHFT A            &lt 4 R     &lt 3 S      &lt 2 T      &kp G        &kp M    &lt 5 N      &lt 6 E      &lt 7 I      &mt RSHFT O
-                &mt LC(LA(LS(LGUI))) Z &kp X       &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA  &kp DOT     &kp SEMI
-                                                   &mt LGUI TAB &kp SPACE    &kp BSPC     &mt RGUI RET
+                &lt 1 Q                &mtc LCTRL W &mt LALT F   &kp P        &kp B        &kp J    &lt 5 L      &mt RALT U &mt RCTRL Y &lt 1 SQT
+                &mtc LSHFT A            &lt 4 R     &lt 3 S      &lt 2 T      &kp G        &kp M    &lt 5 N      &lt 6 E      &lt 7 I      &mtc RSHFT O
+                &mtc LC(LA(LS(LGUI))) Z &kp X       &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA  &kp DOT     &kp SEMI
+                                                   &mtc LGUI TAB &kp SPACE    &kp BSPC     &mtc RGUI RET
             >;
         };
 
@@ -196,47 +205,6 @@
             >;
         };
 
-        /* ----- layer_8_mouse (Layer 8) -----
-         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * | _______ |  WH_L   |  WH_U   |  WH_R   | _______ |   | _______ | _______ |  MS_U   | _______ | _______ |
-         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  BTN4   |  BTN2   |  WH_D   |  BTN1   |  BTN5   |   | _______ |  MS_L   |  MS_D   |  MS_R   | _______ |
-         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * | _______ | _______ |  BTN3   | _______ | _______ |   | _______ |  TRNS   | _______ | _______ |  TO_0   |
-         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         *                               +---------+---------+   +---------+---------+
-         *                               | _______ | _______ |   | _______ |  TRNS   |
-         *                               +---------+---------+   +---------+---------+
-         */
-         layer_8_mouse {
-             bindings = <
-                &none       &kp WH_LEFT  &kp WH_UP    &kp WH_RIGHT &none        &none  &none        &kp MS_UP &none  &none
-                &mkp MB4    &mkp MB2     &kp WH_DOWN  &mkp MB1     &mkp MB5     &none  &kp MS_LEFT  &kp MS_DOWN &kp MS_RIGHT &none
-                &none       &none        &mkp MB3     &none        &none        &none  &trans       &none  &none  &to 0
-                                         &none        &none                     &none  &trans
-             >;
-         };
-
-        /* ----- layer_9_mouse_alt (Layer 9) -----
-         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  TRNS   |  WH_L   |  WH_U   |  WH_R   |  TRNS   |   | _______ |  WH_L   |  WH_U   |  WH_R   | _______ |
-         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  BTN4   |  BTN2   |  WH_D   |  BTN1   |  BTN5   |   |  BTN4   |  BTN1   |  WH_D   |  BTN2   |  BTN5   |
-         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  TRNS   |  TRNS   |  BTN3   |  TRNS   |  TRNS   |   | _______ | _______ |  BTN3   | _______ |  TO_0   |
-         * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         *                               +---------+---------+   +---------+---------+
-         *                               | _______ | _______ |   |  TRNS   |  TRNS   |
-         *                               +---------+---------+   +---------+---------+
-         */
-         layer_9_mouse_alt {
-             bindings = <
-                &trans      &kp WH_LEFT  &kp WH_UP    &kp WH_RIGHT &trans       &none  &kp WH_LEFT  &kp WH_UP &kp WH_RIGHT &none
-                &mkp MB4    &mkp MB2     &kp WH_DOWN  &mkp MB1     &mkp MB5     &mkp MB4  &mkp MB1  &kp WH_DOWN &mkp MB2 &mkp MB5
-                &trans      &trans       &mkp MB3     &trans       &trans       &none  &none        &mkp MB3  &none  &to 0
-                                         &none        &none                     &trans  &trans
-             >;
-         };
 
     };
 };
