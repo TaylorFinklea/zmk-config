@@ -26,9 +26,9 @@
 
         /* ----- default_layer (Layer 0) -----
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  L1_Q   |  LC_W   |  LA_F   |    P    |    B    |   |    J    |    L    |  RA_U   |  RC_Y   |  L1_'   |
+         * |  L1_Q   |  LC_W   |  LA_F   |    P    |    B    |   |    J    |  L5_L   |  RA_U   |  RC_Y   |  L1_'   |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  LS_A   |  L4_R   |  L3_S   |  L2_T   |    G    |   |    M    |  L5_N   |    E    |    I    |  RS_O   |
+         * |  LS_A   |  L4_R   |  L3_S   |  L2_T   |    G    |   |    M    |  L5_N   |  L6_E   |  L7_I   |  RS_O   |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
          * |  HYP_Z  |    X    |    C    |    D    |    V    |   |    K    |    H    |    ,    |    .    |    ;    |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
@@ -38,8 +38,8 @@
          */
         default_layer {
             bindings = <
-                &lt 1 Q                &mt LCTRL W &mt LALT F   &kp P        &kp B        &kp J    &kp L        &mt RALT U &mt RCTRL Y &lt 1 SQT
-                &mt LSHFT A            &lt 4 R     &lt 3 S      &lt 2 T      &kp G        &kp M    &lt 5 N      &kp E      &kp I       &mt RSHFT O
+                &lt 1 Q                &mt LCTRL W &mt LALT F   &kp P        &kp B        &kp J    &lt 5 L      &mt RALT U &mt RCTRL Y &lt 1 SQT
+                &mt LSHFT A            &lt 4 R     &lt 3 S      &lt 2 T      &kp G        &kp M    &lt 5 N      &lt 6 E      &lt 7 I      &mt RSHFT O
                 &mt LC(LA(LS(LGUI))) Z &kp X       &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA  &kp DOT     &kp SEMI
                                                    &mt LGUI TAB &kp SPACE    &kp BSPC     &mt RGUI RET
             >;
@@ -167,10 +167,10 @@
          */
         layer_6_function {
              bindings = <
-                &kp F1      &kp F2    &kp F3      &kp F4     &kp F5       &trans &trans &trans &trans &trans
-                &kp F6      &kp F7    &kp F8      &kp F9     &kp F10      &trans &trans &trans &trans &trans
-                &kp F11     &kp F12   &none       &none      &none        &trans &trans &trans &trans &trans
-                                      &kp NUMLOCK &CAPS                   &trans &trans
+                &kp F1      &kp F2    &kp F3         &kp F4     &kp F5       &trans &trans &trans &trans &trans
+                &kp F6      &kp F7    &kp F8         &kp F9     &kp F10      &trans &trans &trans &trans &trans
+                &kp F11     &kp F12   &none          &none      &none        &trans &trans &trans &trans &trans
+                                      &kp KP_NUMLOCK &CAPS                   &trans &trans
              >;
          };
 
@@ -180,7 +180,7 @@
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
          * |  TRNS   |  TRNS   |  TRNS   |  TRNS   |  TRNS   |   |  TO_2   |  TO_0   |  LGUI   | _______ |  TRNS   |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
-         * |  TRNS   |  TRNS   |  TRNS   |  TRNS   |  TRNS   |   |  TO_9?  |  TO_8?  |  TRNS   | _______ | _______ |
+         * |  TRNS   |  TRNS   |  TRNS   |  TRNS   |  TRNS   |   |  TO_9   |  TO_8   |  TRNS   | _______ | _______ |
          * +---------+---------+---------+---------+---------+   +---------+---------+---------+---------+---------+
          *                               +---------+---------+   +---------+---------+
          *                               |  TRNS   |  TRNS   |   |  TRNS   |  TRNS   |
