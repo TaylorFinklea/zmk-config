@@ -61,6 +61,6 @@
         a-gpios = <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // Phase A -> D3
         b-gpios = <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // Phase B -> D2
         steps = <2>; // 1 action per detent
-        // status = "disabled"; // Implicitly disabled if status is omitted
+        status = "disabled"; // Implicitly disabled if status is omitted
     };
 };
