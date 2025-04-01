@@ -37,7 +37,7 @@
             //                            └────┴────┘   └────┴─────┘
             bindings = <
                 &lt 1 Q                &mt LCTRL W &mt LALT F   &kp P        &kp B        &kp J    &kp L        &mt RALT U &mt RCTRL Y &lt 1 SQT
-                &mt LSHFT A            &kp R       &kp S        &lt 2 T      &kp G        &kp M    &kp N        &kp E      &kp I       &mt RSHFT O
+                &mt LSHFT A            &kp R       &lt 3 S      &lt 2 T      &kp G        &kp M    &kp N        &kp E      &kp I       &mt RSHFT O
                 &mt LC(LA(LS(LGUI))) Z &kp X       &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA  &kp DOT     &kp SEMI
                                                    &mt LGUI TAB &kp SPACE    &kp BSPC     &mt RGUI RET
             >;
@@ -57,7 +57,16 @@
                 &none       &none      &none       &none      &none        &none       &kp PG_UP  &kp UP     &kp HOME   &none
                 &none       &none      &none       &trans     &none        &caps_word  &kp LEFT   &kp DOWN   &kp RIGHT  &none
                 &none       &none      &none       &none      &none        &none       &kp PG_DN  &kp LG(LS(X)) &kp END &none
-                                       &none       &kp ESC        &kp DEL   &trans
+                                       &none       &kp ESC                 &kp DEL     &trans
+            >;
+        };
+
+        layer_3_numbers {
+            bindings = <
+                &trans     &trans    &none     &trans    &trans       &kp SLASH  &kp N7     &kp N8    &kp N9    &kp MINUS
+                &trans     &kp COMMA &none     &kp DOT   &trans       &kp STAR   &kp N4     &kp N5    &kp N6    &kp PLUS
+                &trans     &trans    &none     &trans    &trans       &trans     &kp N1     &kp N2    &kp N3    &kp EQUAL
+                                               &trans    &trans       &trans     &kp N0
             >;
         };
     };
