@@ -53,14 +53,15 @@
     encoder_1: encoder_1 {
         compatible = "alps,ec11";
         label = "ENCODER_1";
-        a-gpios = <&pro_micro 3 (GPIO_PULL_UP)>; // Phase A -> D3
-        b-gpios = <&pro_micro 2 (GPIO_PULL_UP)>; // Phase B -> D2
+        a-gpios = <&pro_micro 3>; // Phase A -> D3
+        b-gpios = <&pro_micro 2>; // Phase B -> D2
         status = "disabled"; // Implicitly disabled if status is omitted
     };
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder_1>; // Add the encoder to the list of sensors for keymap bindings
+        triggers-per-rotation = <30>;
     };
 
 };
