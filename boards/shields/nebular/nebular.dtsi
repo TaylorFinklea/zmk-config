@@ -52,9 +52,9 @@
 
     encoder_1: encoder_1 {
         compatible = "alps,ec11";
-        label = "ENCODER_1";
         a-gpios = <&pro_micro 3>; // Phase A -> D3
         b-gpios = <&pro_micro 2>; // Phase B -> D2
+        steps = <2>;
         status = "disabled"; // Implicitly disabled if status is omitted
     };
 
