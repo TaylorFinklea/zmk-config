@@ -31,13 +31,15 @@
 // nCS  = D0 = P0.08
 // Mot  = D1 = P0.06 (IRQ)
 &pinctrl {
-    // Define pins for active SPI state (using spi0 as per badjeff guide example)
+    // Define pins for active SPI state (using spi0 as per driver example)
     spi0_default: spi0_default {
         group1 {
             // NRF_PSEL(peripheral, port, pin)
             psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,  // P0.24 for SCK
                     <NRF_PSEL(SPIM_MOSI, 0, 20)>, // P0.20 for MOSI/SDIO
                     <NRF_PSEL(SPIM_MISO, 0, 20)>; // P0.20 for MISO/SDIO (shared)
+            // Make sure to properly drive MOSI/MISO - required for shared SDIO
+            nordic,drive-mode = <NRF_DRIVE_H0H1>;
         };
     };
     // Define pins for sleep state
@@ -64,7 +66,7 @@
 
     // Define the PMW3610 sensor node on this SPI bus
     trackball: trackball@0 {
-        compatible = "pixart,pmw3610"; // Use badjeff driver compatible
+        compatible = "pixart,pmw3610"; // Use driver compatible
         reg = <0>; // SPI device address on the bus
         spi-max-frequency = <2000000>; // 2 MHz
 
@@ -82,11 +84,6 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-
-        // Optional: Uncomment if motion should wake the keyboard
-        // wakeup-source;
-        // Optional: Uncomment to force sensor awake initially (troubleshooting)
-        // force-awake;
     };
 };
 
