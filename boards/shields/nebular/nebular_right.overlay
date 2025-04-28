@@ -74,6 +74,10 @@
         // Sensor configuration
         cpi = <800>; // Set Counts Per Inch (adjust as needed)
 
+        status = "okay";
+        force-awake;
+        wakeup-source;
+
         // Standard HID event codes
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
