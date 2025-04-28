@@ -93,4 +93,15 @@
         compatible = "zmk,input-listener";
         device = <&trackball>; // Point to the PMW3610 device node
     };
+
+    // Ensure BLE peripheral correctly starts up
+    chosen {
+        zmk,kscan = &kscan;
+        zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+        label = "VBATT";
+    };
 };
