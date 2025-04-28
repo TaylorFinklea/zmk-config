@@ -20,3 +20,24 @@
         , <&pro_micro 14 GPIO_ACTIVE_HIGH>
         ;
 };
+
+// Enable SPI1 for the PMW3610 sensor
+&spi1 { // Or &spi0 if spi1 isn't available/defined for your board
+    compatible = "nordic,nrf-spim"; // Adjust if using a different controller type
+    status = "okay";
+    mosi-pin = <&pro_micro 3>; /* D3 for SDIO */
+    sck-pin = <&pro_micro 5>;  /* D5 for SCLK */
+    // miso-pin = <&pro_micro X>; /* Define if you wired a separate MISO pin */
+
+    // PMW3610 sensor definition
+    pmw3610@0 {
+        compatible = "pixart,pmw3610";
+        reg = <0>; // SPI device address 0
+        spi-max-frequency = <2000000>; // 2 MHz
+        cs-gpios = <&pro_micro 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* D0 for nCS */
+        int-gpios = <&pro_micro 1 GPIO_ACTIVE_LOW>; /* D1 for Mot (interrupt) */
+        // Optional fine-tuning:
+        // cpi = <800>;
+        // motion-burst;
+    };
+};
