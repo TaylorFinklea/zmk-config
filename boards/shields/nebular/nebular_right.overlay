@@ -3,6 +3,7 @@
 // instructions.
 
 #include "nebular.dtsi"
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &default_transform {
     // Set this to the number of columns on the left side.
@@ -21,23 +22,73 @@
         ;
 };
 
-// Enable SPI1 for the PMW3610 sensor
-&spi1 { // Or &spi0 if spi1 isn't available/defined for your board
-    compatible = "nordic,nrf-spim"; // Adjust if using a different controller type
-    status = "okay";
-    mosi-pin = <&pro_micro 3>; /* D3 for SDIO */
-    sck-pin = <&pro_micro 5>;  /* D5 for SCLK */
-    // miso-pin = <&pro_micro X>; /* Define if you wired a separate MISO pin */
+// --- PMW3610 Sensor Configuration (Right Side) ---
+// #include <zephyr/dt-bindings/input/input-event-codes.h> // Needed for INPUT_EV_REL etc. (Included above)
 
-    // PMW3610 sensor definition
-    pmw3610@0 {
-        compatible = "pixart,pmw3610";
-        reg = <0>; // SPI device address 0
+// Define SPI pin configurations for nice!nano v2
+// D3 = P0.10 (MOSI/SDIO)
+// D5 = P0.17 (SCLK)
+// MISO often shared with MOSI for PMW3610, using P0.10
+&pinctrl {
+    // Define pins for active SPI state (using spi0 as per badjeff guide example)
+    spi0_default: spi0_default {
+        group1 {
+            // NRF_PSEL(peripheral, port, pin)
+            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,  // D5 / P0.17 for SCK
+                    <NRF_PSEL(SPIM_MOSI, 0, 10)>, // D3 / P0.10 for MOSI/SDIO
+                    <NRF_PSEL(SPIM_MISO, 0, 10)>; // D3 / P0.10 for MISO/SDIO (shared)
+        };
+    };
+    // Define pins for sleep state
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 10)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 10)>;
+            low-power-enable;
+        };
+    };
+};
+
+// Configure the SPI peripheral (using spi0)
+&spi0 {
+    compatible = "nordic,nrf-spim"; // nice!nano uses nRF52
+    status = "okay";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    // Chip Select: D0 / P0.06
+    cs-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>; // Using GPIO Port 0, Pin 6
+
+    // Define the PMW3610 sensor node on this SPI bus
+    trackball: trackball@0 {
+        compatible = "pixart,pmw3610"; // Use badjeff driver compatible
+        reg = <0>; // SPI device address on the bus
         spi-max-frequency = <2000000>; // 2 MHz
-        cs-gpios = <&pro_micro 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* D0 for nCS */
-        int-gpios = <&pro_micro 1 GPIO_ACTIVE_LOW>; /* D1 for Mot (interrupt) */
-        // Optional fine-tuning:
-        // cpi = <800>;
-        // motion-burst;
+
+        // Interrupt/Motion Pin: D1 / P0.08
+        irq-gpios = <&gpio0 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // GPIO Port 0, Pin 8
+
+        // Sensor configuration
+        cpi = <800>; // Set Counts Per Inch (adjust as needed)
+
+        // Standard HID event codes
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+
+        // Optional: Uncomment if motion should wake the keyboard
+        // wakeup-source;
+        // Optional: Uncomment to force sensor awake initially (troubleshooting)
+        // force-awake;
+    };
+};
+
+// Bridge the sensor device to the ZMK input system
+/ {
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>; // Point to the PMW3610 device node
     };
 };
