@@ -69,6 +69,7 @@
         compatible = "pixart,pmw3610"; // Use driver compatible
         reg = <0>; // SPI device address on the bus
         spi-max-frequency = <2000000>; // 2 MHz
+        status = "okay"; // Explicitly enable trackball on right side
 
         // Interrupt/Motion Pin: D3 / P0.20
         irq-gpios = <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // GPIO Port 0, Pin 20

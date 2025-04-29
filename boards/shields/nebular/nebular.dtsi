@@ -9,6 +9,7 @@
 / {
     chosen {
         zmk,physical-layout = &default_layout;
+        zmk,trackball = &trackball; // Declare trackball in chosen node
     };
 
     kscan: kscan {

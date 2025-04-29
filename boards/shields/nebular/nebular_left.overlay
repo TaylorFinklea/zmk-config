@@ -19,3 +19,13 @@
         , <&pro_micro 4 GPIO_ACTIVE_HIGH>  // Encoder Button Col 5
         ;
 };
+
+// Dummy trackball node for left side (disabled)
+&spi0 {
+    status = "disabled";
+    
+    trackball: trackball@0 {
+        compatible = "pixart,pmw3610";
+        status = "disabled"; // Explicitly disabled on left side
+    };
+};
