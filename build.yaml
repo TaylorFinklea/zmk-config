@@ -21,8 +21,10 @@
 include:
   - board: nice_nano_v2
     shield: nebular_left
+    snippet: zmk-usb-logging
   - board: nice_nano_v2
     shield: nebular_right
+    snippet: zmk-usb-logging
   - board: nice_nano_v2
     shield: splitkb_aurora_sweep_left
   - board: nice_nano_v2
