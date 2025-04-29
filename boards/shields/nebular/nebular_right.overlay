@@ -77,7 +77,6 @@
         // Sensor configuration
         cpi = <800>; // Set Counts Per Inch (adjust as needed)
 
-        status = "okay";
         force-awake;
         wakeup-source;
 
