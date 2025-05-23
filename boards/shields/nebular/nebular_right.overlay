@@ -37,7 +37,7 @@
             // NRF_PSEL(peripheral, port, pin)
             psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,  // P0.24 for SCK
                     <NRF_PSEL(SPIM_MOSI, 1, 0)>,  // P1.00 for MOSI/SDIO
-                    <NRF_PSEL(SPIM_MISO, 1, 0)>;  // P1.00 for MISO/SDIO (shared)
+                    <NRF_PSEL(SPIM_MISO, 0, 23)>;  // Dummy MISO pin (unused wire)
             // Make sure to properly drive MOSI/MISO - required for shared SDIO
             nordic,drive-mode = <NRF_DRIVE_H0H1>;
         };
@@ -47,7 +47,7 @@
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
                     <NRF_PSEL(SPIM_MOSI, 1, 0)>,
-                    <NRF_PSEL(SPIM_MISO, 1, 0)>;
+                    <NRF_PSEL(SPIM_MISO, 0, 23)>;
             low-power-enable;
         };
     };
