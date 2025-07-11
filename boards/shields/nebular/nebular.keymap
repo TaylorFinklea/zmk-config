@@ -105,10 +105,10 @@
         layer_2_navigation {
             // Note: LGSX = LG(LS(X)) -> Cmd+Shift+X
             bindings = <
-                &none       &none      &none       &none      &none        &none       &kp PG_UP  &kp UP     &kp HOME   &none
-                &none       &none      &none       &trans     &none        &caps_word  &kp LEFT   &kp DOWN   &kp RIGHT  &none
-                &none       &none      &none       &none      &none        &none       &kp PG_DN  &kp LG(LS(X)) &kp END &none
-                                       &none       &kp ESC                 &kp DEL     &trans
+                &none       &none                  &none       &none      &none        &kp PG_DN         &kp PG_UP    &kp UP        &kp HOME     &kp END
+                &none       &kp LC(LA(LS(LG(T))))  &kp LG(K)   &trans     &none        &kp LG(LS(LBKT))  &kp LEFT     &kp DOWN      &kp RIGHT    &kp LG(LS(RBKT))
+                &none       &none                  &none       &none      &none        &caps_word        &kp LG(LBKT) &kp LG(LS(X)) &kp LG(RBKT) &none
+                                                   &none       &kp ESC                 &kp DEL     &trans
             >;
         };
 
