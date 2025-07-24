@@ -106,8 +106,8 @@
             // Note: LGSX = LG(LS(X)) -> Cmd+Shift+X
             bindings = <
                 &none       &none                  &none       &none      &none        &kp PG_DN         &kp PG_UP    &kp UP        &kp HOME     &kp END
-                &none       &kp LC(LA(LS(LG(T))))  &kp LG(K)   &trans     &none        &kp LG(LBKT)  &kp LEFT     &kp DOWN      &kp RIGHT    &kp LG(RBKT)
-                &none       &none                  &none       &none      &none        &caps_word        &kp LG(LS(LBKT)) &kp LG(LS(X)) &kp LG(LS(RBKT)) &none
+                &none       &kp LC(LA(LS(LG(T))))  &kp LG(K)   &trans     &none        &kp LG(LS(LBKT))  &kp LEFT     &kp DOWN      &kp RIGHT    &kp LG(LS(RBKT))
+                &none       &none                  &none       &none      &none        &caps_word        &kp LG(LBKT)) &kp LG(LS(X)) &kp LG(RBKT)) &none
                                                    &none       &kp ESC                 &kp DEL     &trans
             >;
         };
