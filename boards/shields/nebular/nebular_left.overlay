@@ -19,3 +19,16 @@
         , <&pro_micro 4 GPIO_ACTIVE_HIGH>  // Encoder Button Col 5
         ;
 };
+
+/ {
+    my_input_split {
+        compatible = "zmk,input-split";
+        status = "okay";
+    };
+};
+
+/* turn on the listener and route motion to the split device */
+&trackball_listener {
+    status = "okay";
+    device = <&my_input_split>;
+};
