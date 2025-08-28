@@ -61,14 +61,14 @@
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
 
-    // Chip Select: D4 / P0.22
-    cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>; // Using GPIO Port 0, Pin 22
+    // Chip Select: D4 / P0.22 - TRY ACTIVE HIGH INSTEAD
+    cs-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>; // Changed from ACTIVE_LOW to ACTIVE_HIGH
 
     // Define the PMW3610 sensor node on this SPI bus
     trackball: trackball@0 {
         compatible = "pixart,pmw3610"; // Use driver compatible
         reg = <0>; // SPI device address on the bus
-        spi-max-frequency = <500000>; // Reduce to 500 KHz for testing
+        spi-max-frequency = <500000>; // 500 KHz for testing
 
         // Interrupt/Motion Pin: D3 / P0.20
         irq-gpios = <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // GPIO Port 0, Pin 20
